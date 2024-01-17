@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
+<title>All THE TIME</title>
+    <style>
+        body {
+            font-family: 'Pixelify Sans', sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+      <div class="container-lg">
+            <div class="d-flex  w-100 vh-100 justify-content-center align-items-center">
+                  <div class="fs-1 text-center">
+                        <h1>Current Time</h1>
+                        <p id="current-time"></p>
+                  </div>
+            </div>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+        function updateTime() {
+            var currentTime = new Date();
+            var hours = currentTime.getHours();
+            var minutes = currentTime.getMinutes();
+            var seconds = currentTime.getSeconds();
+
+            // เพิ่ม 0 นำหน้าถ้าน้อยกว่า 10
+            hours = (hours < 10 ? "0" : "") + hours;
+            minutes = (minutes < 10 ? "0" : "") + minutes;
+            seconds = (seconds < 10 ? "0" : "") + seconds;
+
+            // นำเวลามาแสดงผลในรูปแบบ HH:mm:ss
+            var formattedTime = hours + ":" + minutes + ":" + seconds;
+
+            // นำเวลามาแสดงใน Element ที่มี id เป็น "current-time"
+            document.getElementById("current-time").innerHTML = formattedTime;
+        }
+
+        // เรียกใช้ฟังก์ชั่นทุกๆ 1 วินาที
+        setInterval(updateTime, 1000);
+
+        // เรียกใช้ฟังก์ชั่นเพื่อแสดงเวลาที่เป็นค่าเริ่มต้น
+        updateTime();
+    </script>
+</body>
+</html>
